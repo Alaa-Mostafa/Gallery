@@ -1,0 +1,49 @@
+<header class="flex items-center justify-between px-20 py-4 bg-background">
+  <div class="flex items-center gap-x-7">
+    <a
+      routerLink="/"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
+      >Home</a
+    >
+    <a routerLink="/about-us" routerLinkActive="active">About</a>
+  </div>
+
+  <p-button
+    label="Add New Image"
+    raised="true"
+    icon="pi pi-plus"
+    iconPos="right"
+    styleClass="bg-primaryText text-zinc-50 border-none hover:bg-opacity-70 focus:ring-0"
+    (onClick)="openAddPopup()"
+  ></p-button>
+</header>
+
+<!---------------- add image popup ------------------>
+<app-edit-image
+  [(displayPopup)]="displayAddPopup"
+  (confirmEditing)="addNewImage($event)"
+  header="Add Image"
+></app-edit-image>
+
+<!---------- add image confirmation popup ----------->
+<p-confirmDialog #cd>
+  <ng-template pTemplate="headless" let-message>
+    <div class="flex flex-col items-center p-5 rounded-xl bg-zinc-50">
+      <div
+        class="bg-green-400 text-zinc-50 rounded-full flex justify-center items-center h-20 w-20 -mt-14"
+      >
+        <i class="pi pi-check text-5xl"></i>
+      </div>
+
+      <p class="mb-0 mt-4">{{ message.message }}</p>
+      <div class="flex items-center gap-4 mt-5">
+        <p-button
+          label="Ok"
+          (click)="cd.accept()"
+          styleClass="bg-primaryText text-zinc-50 border-primaryText hover:bg-opacity-70 focus:ring-0"
+        ></p-button>
+      </div>
+    </div>
+  </ng-template>
+</p-confirmDialog>

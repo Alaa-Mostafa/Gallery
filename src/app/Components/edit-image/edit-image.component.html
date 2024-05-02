@@ -1,0 +1,103 @@
+<p-dialog
+  [header]="header"
+  [(visible)]="displayPopup"
+  [modal]="true"
+  [closable]="false"
+  [focusOnShow]="false"
+  styleClass="w-[60%] bg-red-400"
+  (onHide)="resetForm()"
+>
+  <!-------------------- form -------------------->
+  <div
+    class="flex w-full justify-between gap-x-20 h-[400px]"
+    [formGroup]="imageForm"
+  >
+    <!----- image preview ------>
+    <img
+      [src]="
+        image.image
+          ? image.image
+          : 'https://www.pngkey.com/png/full/233-2332677_image-500580-placeholder-transparent.png'
+      "
+      alt="{{ image.name }}"
+      class="h-full w-[400px] object-cover object-center rounded-xl border-[3px] border-primaryText"
+    />
+
+    <div class="flex-1 flex flex-col h-full justify-between">
+      <!------ name ------>
+      <div class="input-div">
+        <label for="name">Name: </label>
+        <input id="name" type="text" pInputText formControlName="name" />
+
+        @if (imageForm.controls.name.invalid && imageForm.controls.name.touched)
+        {
+        <small class="text-red-500">*Name is required!</small>
+        }
+      </div>
+
+      <!--- description --->
+      <div class="input-div">
+        <label for="description">Description: </label>
+        <textarea
+          id="description"
+          rows="3"
+          cols="30"
+          pInputTextarea
+          formControlName="description"
+        ></textarea>
+
+        @if (imageForm.controls.description.hasError('required') &&
+        imageForm.controls.description.touched) {
+        <small class="text-red-500">*Description is required!</small>
+        } @else if (imageForm.controls.description.hasError('maxlength')) {
+        <small class="text-red-500">*Maximum length is 200 characters</small>
+        }
+      </div>
+
+      <!--- collection ---->
+      <div class="input-div">
+        <label for="collection">Collection: </label>
+        <input
+          id="collection"
+          type="text"
+          pInputText
+          formControlName="collection"
+        />
+
+        @if (imageForm.controls.collection.invalid &&
+        imageForm.controls.collection.touched) {
+        <small class="text-red-500">*Collection is required!</small>
+        }
+      </div>
+
+      <!----- image ------>
+      <div class="input-div">
+        <label for="image">Image: </label>
+        <input id="image" type="text" pInputText formControlName="image" />
+
+        @if (imageForm.controls.image.invalid &&
+        imageForm.controls.image.touched) {
+        <small class="text-red-500">*Image link is required!</small>
+        }
+      </div>
+    </div>
+  </div>
+
+  <!------------------- footer ------------------->
+  <p-footer>
+    <p-button
+      label="Save"
+      raised="true"
+      styleClass="px-10 2xl:px-20 bg-primaryText text-zinc-50 border-none hover:bg-opacity-70 focus:ring-primaryText"
+      (onClick)="confirmEdit()"
+      [disabled]="imageForm.invalid"
+    ></p-button>
+
+    <p-button
+      label="Cancel"
+      raised="true"
+      styleClass="px-10 2xl:px-20 bg-red-400 text-zinc-50 border-none hover:bg-opacity-70 focus:ring-red-400"
+      (onClick)="cancelEdit()"
+    ></p-button>
+  </p-footer>
+</p-dialog>

@@ -1,0 +1,53 @@
+{
+  "Images": [
+    {
+      "id": 0,
+      "name": "Dark Magician",
+      "description": "The ultimate wizard in terms of attack and defense.",
+      "collection": "Yugioh",
+      "image": "https://th.bing.com/th/id/R.348f0233539dc4d09833d2d09e86c63f?rik=IIwBrxxOHP0BJg&pid=ImgRaw&r=0"
+    },
+    {
+      "id": 1,
+      "name": "Basim Ibn Ishaq",
+      "description": "Protagonist of Assassin's Creed Mirage",
+      "collection": "Assassin's Creed Mirage",
+      "image": "https://img.gg.deals/68/e3/ce93613bc493ad52501b975b4a7ef4f096dc_912cr476.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Dark Magician Girl",
+      "description": "This card gains 300 ATK for every 'Dark Magician' or 'Magician of Black Chaos' in either player's Graveyard.",
+      "collection": "Yugioh",
+      "image": "https://ms.yugipedia.com/thumb/b/ba/DarkMagicianGirl-DBR-EN-VG-artwork.png/514px-DarkMagicianGirl-DBR-EN-VG-artwork.png"
+    },
+    {
+      "name": "Red Tulips",
+      "description": "Beautiful red tulips.",
+      "collection": "flowers",
+      "image": "https://www.trbimg.com/img-5441a0e1/turbine/sns-mct-bc-garden-tulips-return-20141017",
+      "id": 4
+    },
+    {
+      "name": "Lotus Flower",
+      "description": "A beautiful pink lotus flower.",
+      "collection": "Flowers",
+      "image": "https://www.wallpaperflare.com/static/335/587/630/blooming-lotus-flower-selective-focus-photography-wallpaper.jpg",
+      "id": 6
+    },
+    {
+      "name": "Plumeria",
+      "description": "Magical pink flowers.",
+      "collection": "Flowers",
+      "image": "https://webneel.com/wallpaper/sites/default/files/images/07-2013/beautiful-flower-wallpaper.jpg",
+      "id": 7
+    },
+    {
+      "name": "Roshan",
+      "description": "A master assassin. Appeared in Assassin's Creed Valhalla and also as Basim's mentor in Assassin's Creed Mirage.",
+      "collection": "Assassin's Creed Mirage",
+      "image": "https://www.10wallpaper.com/wallpaper/1920x1440/2210/Assassins_Creed_Mirage_Ubisoft_Game_5K_1920x1440.jpg",
+      "id": 8
+    }
+  ]
+}

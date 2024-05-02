@@ -1,0 +1,7 @@
+.input-div {
+    @apply flex flex-col gap-y-1;
+}
+
+.ng-invalid.ng-touched {
+    @apply border-red-500;
+}

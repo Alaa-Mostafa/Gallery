@@ -1,0 +1,95 @@
+<div class="h-full flex gap-x-10 items-center">
+  <img
+    [src]="image.image"
+    alt="{{ image.name }}"
+    class="h-[90%] 2xl:h-[80%] w-[30%] object-cover object-center rounded-xl border-[3px] border-primaryText"
+  />
+
+  <div
+    class="border border-primaryText w-[60%] h-[90%] 2xl:h-[80%] bg-background bg-opacity-25 rounded-xl p-6 flex flex-col justify-between"
+  >
+    <div class="flex flex-col gap-y-5 selection:bg-primaryText selection:text-zinc-50">
+      <!----------- name ----------->
+      <div class="info_div">
+        <p class="title">Name:</p>
+        <p class="info">{{ image.name }}</p>
+      </div>
+
+      <!-------- collection -------->
+      <div class="info_div">
+        <p class="title">Collection:</p>
+        <p class="info">{{ image.collection }}</p>
+      </div>
+
+      <!-------- Description ------->
+      <div class="info_div">
+        <p class="title">Description:</p>
+        <p class="info">{{ image.description }}</p>
+      </div>
+
+      <!-------- image link -------->
+      <div class="info_div">
+        <p class="title">Image:</p>
+        <p class="info text-wrap break-all">{{ image.image }}</p>
+      </div>
+    </div>
+
+    <div class="flex gap-x-10">
+      <p-button
+        label="Edit"
+        raised="true"
+        icon="pi pi-pen-to-square"
+        iconPos="right"
+        styleClass="px-10 2xl:px-20 bg-primaryText text-zinc-50 border-none hover:bg-opacity-70 focus:ring-0"
+        (onClick)="openEditPopup()"
+      ></p-button>
+
+      <p-button
+        label="Delete"
+        raised="true"
+        icon="pi pi-trash"
+        iconPos="right"
+        styleClass="px-10 2xl:px-20 bg-red-400 text-zinc-50 border-none hover:bg-opacity-70 focus:ring-0"
+        (onClick)="confirmDelete()"
+        id="deleteBtn"
+      ></p-button>
+    </div>
+  </div>
+</div>
+
+<!----------------------------- modals ----------------------------->
+<!--------- edit image popup ---------->
+<app-edit-image
+  [image]="image"
+  [(displayPopup)]="displayEditPopup"
+  (confirmEditing)="editImageData($event)"
+  header="Edit Image"
+></app-edit-image>
+
+<!-------- delete image popup --------->
+<p-confirmDialog #cd>
+  <ng-template pTemplate="headless" let-message>
+    <div class="flex flex-col items-center p-5 rounded-xl bg-zinc-50">
+      <div
+        class="bg-red-400 text-zinc-50 rounded-full flex justify-center items-center h-20 w-20 -mt-14"
+      >
+        <i class="pi pi-question text-5xl"></i>
+      </div>
+      <!-- <span class="font-bold text-2xl block mb-2 mt-4">{{ message.header }}</span> -->
+      <p class="mb-0 mt-4">{{ message.message }}</p>
+      <div class="flex items-center gap-4 mt-5">
+        <p-button
+          label="Yes"
+          (click)="cd.accept()"
+          styleClass="bg-primaryText text-zinc-50 border-primaryText hover:bg-opacity-70 focus:ring-0"
+        ></p-button>
+        <p-button
+          label="No"
+          (click)="cd.reject()"
+          [outlined]="true"
+          styleClass="text-primaryText hover:bg-opacity-70 focus:ring-0"
+        ></p-button>
+      </div>
+    </div>
+  </ng-template>
+</p-confirmDialog>

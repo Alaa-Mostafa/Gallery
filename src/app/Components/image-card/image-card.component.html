@@ -1,0 +1,20 @@
+<div
+  class="border-[2.7px] rounded-xl relative border-primaryText w-[250px] h-[270px] 2xl:w-[280px] 2xl:h-[300px] cursor-pointer"
+  (mouseenter)="isHovered = true"
+  (mouseleave)="isHovered = false"
+  (click)="handleClick()"
+>
+  <img
+    alt="{{ image.name }}"
+    [src]="image.image"
+    class="w-full h-full object-cover object-center rounded-[0.6rem]"
+  />
+
+  @if (isHovered) {
+  <div
+    class="bg-background bg-opacity-85 absolute top-0 w-full h-full rounded-[0.6rem] flex flex-col justify-center items-center"
+  >
+    <p class="text-secondaryText font-bold text-xl">{{ image.name | imageTitle : 20 : "..." }}</p>
+  </div>
+  }
+</div>

@@ -1,0 +1,11 @@
+.info_div {
+  @apply flex w-full gap-x-6;
+}
+
+.title {
+  @apply text-primaryText font-semibold text-lg w-[10%];
+}
+
+.info {
+  @apply text-secondaryText font-medium text-lg flex-1;
+}

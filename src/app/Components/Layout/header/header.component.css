@@ -1,0 +1,7 @@
+a {
+    @apply text-primaryText font-medium text-base p-3;
+}
+
+a.active {
+    @apply font-semibold bg-secondaryText bg-opacity-15 rounded-md;
+}
